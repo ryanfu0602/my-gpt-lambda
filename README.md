@@ -34,9 +34,8 @@ request:
 Body:{
    "inputName": "吴文华"
 }
-<img width="953" alt="image" src="https://github.com/ryanfu0602/my-gpt-lambda/assets/43898376/0c1d80f7-0639-408c-975b-d368e2921e72">
-
 ```
+<img width="953" alt="image" src="https://github.com/ryanfu0602/my-gpt-lambda/assets/43898376/0c1d80f7-0639-408c-975b-d368e2921e72">
 ## Files
 
 ### debug.ts
