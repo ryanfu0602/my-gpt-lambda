@@ -11,6 +11,8 @@ npm install
 ## Debug 
 
 ```
+Add OPENAI key to .env file
+
 VS Code -> Run -> Start Debugging
 ```
 ## Deploy()
