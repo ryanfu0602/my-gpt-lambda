@@ -15,13 +15,28 @@ Add OPENAI key to .env file
 
 VS Code -> Run -> Start Debugging
 ```
-## Deploy()
+## Deploy
 
 ```
 npm install -g serverless
 sls deploy
 ```
 
+## Test
+
+```
+https://pqghkw4cxgd7pqkas3fncvwam40kkthn.lambda-url.ap-southeast-2.on.aws/
+
+Postman
+
+Method: Post
+Url: https://pqghkw4cxgd7pqkas3fncvwam40kkthn.lambda-url.ap-southeast-2.on.aws/
+request:
+
+Body:{
+   "inputName": "吴文华"
+}
+```
 ## Files
 
 ### debug.ts
