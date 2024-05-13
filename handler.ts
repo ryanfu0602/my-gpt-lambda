@@ -3,11 +3,11 @@ import OpenAI from "openai";
 
 const env = <{ OPENAI_KEY: string }>process.env;
 
-const userList = [
-  "David Smith 大卫 斯密斯",
-  "Yueling Zhang 月林张",
-  "Huawen Wu 华文吴",
-  "Annie Lee 李安妮",
+const items = [
+  "这里有一颗苹果树",
+  "This is a bunch of bananas",
+  "そこにスイカがあります",
+  "Tom suka makan mangga",
 ];
 type RequestBody = {
   inputName: string;
@@ -25,11 +25,12 @@ export const main = async (event: APIGatewayEvent, context: Context) => {
   const openai = new OpenAI({ apiKey: env.OPENAI_KEY });
 
   // Get all Embeddings of input and list in one api call
-  userList[userList.length] = body.inputName;
+  const ListForOpenAI = JSON.parse(JSON.stringify(items));
+  ListForOpenAI[ListForOpenAI.length] = body.inputName;
 
   const listEmbedding = await openai.embeddings.create({
-    model: "text-embedding-3-small",
-    input: userList,
+    model: "text-embedding-3-large",
+    input: ListForOpenAI,
     encoding_format: "float",
   });
 
@@ -44,6 +45,9 @@ export const main = async (event: APIGatewayEvent, context: Context) => {
         e.embedding,
         listEmbedding.data[listLength - 1].embedding
       );
+
+      console.log(index, similarityScore);
+
       if (similarityScore > bestScore) {
         bestMatch = index;
         bestScore = similarityScore;
@@ -51,10 +55,11 @@ export const main = async (event: APIGatewayEvent, context: Context) => {
     }
   });
 
+  console.log(items[bestMatch]);
   return {
     statusCode: 200,
     headers: {},
-    body: { bestMatch: userList[bestMatch] },
+    body: { bestMatch: items[bestMatch] },
   };
 };
 

@@ -5,7 +5,7 @@ debugger;
 
 main(
   {
-    body: JSON.stringify({ inputName: "Wu Huawen" }),
+    body: JSON.stringify({ inputName: "芒果" }),
   } as APIGatewayEvent,
   {} as Context
 ).catch((e) => {
