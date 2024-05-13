@@ -25,8 +25,6 @@ sls deploy
 ## Test
 
 ```
-https://pqghkw4cxgd7pqkas3fncvwam40kkthn.lambda-url.ap-southeast-2.on.aws/
-
 Postman
 
 Method: Post
@@ -36,6 +34,8 @@ request:
 Body:{
    "inputName": "吴文华"
 }
+<img width="953" alt="image" src="https://github.com/ryanfu0602/my-gpt-lambda/assets/43898376/0c1d80f7-0639-408c-975b-d368e2921e72">
+
 ```
 ## Files
 
